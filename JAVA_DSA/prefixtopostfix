@@ -1,0 +1,21 @@
+import java.util.*;
+public class prefixtopostfix{
+    public static void main(String args[]){
+        String prefix = "-9/*+5346";
+        Stack<String> st = new Stack<>();
+        for(int i=prefix.length()-1;i>=0;i--){
+            char ch =prefix.charAt(i);
+            int ascii = (int)ch;
+            if(ascii>=48 && ascii<=57) {
+                String t = ""+ch;
+                st.push(t);}
+            else{
+                String v1 = st.pop();
+                String v2 = st.pop();
+                String s = v1+v2+ch;
+                st.push(s);
+            }
+        }
+        System.out.println(st.peek());
+    }
+}
